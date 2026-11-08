@@ -1,0 +1,29 @@
+{
+  "name": "outpost-protocol-zero",
+  "version": "2.0.0",
+  "description": "OUTPOST: PROTOCOL ZERO - AAA Ultra-High Performance Sci-Fi Tower Defense Game (MERN Stack)",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "build": "npm --prefix client run build",
+    "test": "node test/gameplay-test.js",
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "zip": "powershell -Command \"Add-Type -AssemblyName System.IO.Compression.FileSystem; if (Test-Path outpost-tower-defense.zip) { Remove-Item -Force outpost-tower-defense.zip }; if (Test-Path outpost-source) { Remove-Item -Recurse -Force outpost-source }; New-Item -ItemType Directory outpost-source | Out-Null; Copy-Item package.json, README.md, NUMBERS.md, vercel.json, .gitignore outpost-source\\; New-Item -ItemType Directory outpost-source\\test, outpost-source\\client, outpost-source\\server | Out-Null; Copy-Item test\\* outpost-source\\test\\; Copy-Item -Recurse client\\src, client\\public, client\\dist, client\\index.html, client\\package.json, client\\vite.config.js, client\\postcss.config.js, client\\tailwind.config.js, client\\.gitignore outpost-source\\client\\; Copy-Item -Recurse server\\config, server\\controllers, server\\models, server\\routes, server\\server.js, server\\package.json outpost-source\\server\\; [System.IO.Compression.ZipFile]::CreateFromDirectory((Resolve-Path outpost-source), (Join-Path (Get-Location) 'outpost-tower-defense.zip')); Remove-Item -Recurse -Force outpost-source\""
+  },
+  "keywords": [
+    "tower-defense",
+    "game-engine",
+    "stress-test",
+    "spatial-hash-grid",
+    "mern",
+    "cyberpunk",
+    "aaa-ui",
+    "vercel"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}
